@@ -73,7 +73,7 @@ int main() {
     vi.erase(std::remove_if(vi.begin(), vi.end(), [](const Item& item) { return item.iid == 10 || item.iid == 12; }));
 
     list<Item> li;
-    std::copy(vi.begin(), vi.end(), li.begin());
+    std::copy(vi.begin(), vi.end(), /*li.begin()*/ back_inserter(li)); // no segerror
 
     
     li.sort([](const Item& a, const Item& b) { return a.name < b.name; });
